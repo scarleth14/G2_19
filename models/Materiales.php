@@ -39,10 +39,10 @@
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function update_material($ID_Materiales, $DESCRIPCION, $UNIDAD, $COSTO, $PRECIO, $APLICA_ISV, $PORCENTAJE_ISV, $ESTADO){
+        public function update_material($ID_Materiales, $DESCRIPCION, $UNIDAD, $COSTO, $PRECIO, $APLICA_ISV, $PORCENTAJE_ISV, $ESTADO, $ID_SOCIO){
             $conectar=parent::conexion();
             parent::set_names();
-            $sql="UPDATE g2_19.ma_materiales SET DESCRIPCION = ?, UNIDAD = ?, COSTO = ?, PRECIO = ?, APLICA_ISV = ?, PORCENTAJE_ISV = ?, ESTADO = ? WHERE ID_Materiales = ?;";
+            $sql="UPDATE g2_19.ma_materiales SET DESCRIPCION = ?, UNIDAD = ?, COSTO = ?, PRECIO = ?, APLICA_ISV = ?, PORCENTAJE_ISV = ?, ESTADO = ?, ID:SOCIO = ? WHERE ID_Materiales = ?;";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $DESCRIPCION);
             $sql->bindValue(2, $UNIDAD);
@@ -51,7 +51,8 @@
             $sql->bindValue(5, $APLICA_ISV);
             $sql->bindValue(6, $PORCENTAJE_ISV);
             $sql->bindValue(7, $ESTADO);
-            $sql->bindValue(8, $ID_Materiales);
+            $sql->bindValue(8, $ID_SOCIO);
+            $sql->bindValue(9, $ID_Materiales);
             $sql->execute();
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
