@@ -35,7 +35,7 @@
             break;
 
             case "UpdatePedido":
-                $datos=$pedidos->update_pedido($body["ID"], $body["FECHA_PEDIDO"], $body["SUB_TOTAL"], $body["TOTAL_ISV"], $body["TOTAL"], $body["FECHA_ENTREGA"], $body["ESTADO"]);
+                $datos=$pedidos->update_pedido($body["ID"], $body["ID_SOCIO"], $body["FECHA_PEDIDO"], $body["DETALLE"], $body["SUB_TOTAL"], $body["TOTAL_ISV"], $body["TOTAL"], $body["FECHA_ENTREGA"], $body["ESTADO"]);
                 echo json_encode("Pedido de Proveedor Actualizado");
             break;
 
