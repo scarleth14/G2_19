@@ -42,7 +42,7 @@
         public function update_material($ID_Materiales, $DESCRIPCION, $UNIDAD, $COSTO, $PRECIO, $APLICA_ISV, $PORCENTAJE_ISV, $ESTADO, $ID_SOCIO){
             $conectar=parent::conexion();
             parent::set_names();
-            $sql="UPDATE g2_19.ma_materiales SET DESCRIPCION = ?, UNIDAD = ?, COSTO = ?, PRECIO = ?, APLICA_ISV = ?, PORCENTAJE_ISV = ?, ESTADO = ?, ID:SOCIO = ? WHERE ID_Materiales = ?;";
+            $sql="UPDATE g2_19.ma_materiales SET DESCRIPCION = ?, UNIDAD = ?, COSTO = ?, PRECIO = ?, APLICA_ISV = ?, PORCENTAJE_ISV = ?, ESTADO = ?, ID_SOCIO = ? WHERE ID_Materiales = ?;";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $DESCRIPCION);
             $sql->bindValue(2, $UNIDAD);
