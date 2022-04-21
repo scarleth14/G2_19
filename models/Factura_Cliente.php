@@ -5,7 +5,7 @@
         public function get_facturas(){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql="SELECT * FROM ma_factura_cliente ";
+            $sql="SELECT * FROM g2_19.ma_factura_cliente ";
             $sql=$conectar->prepare($sql);
             $sql->execute();
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
@@ -14,7 +14,7 @@
         public function get_factura($id){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql="SELECT * FROM ma_factura_cliente WHERE ID = ?";
+            $sql="SELECT * FROM g2_19.ma_factura_cliente WHERE ID = ?";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $id);
             $sql->execute();
@@ -24,7 +24,7 @@
         public function insert_factura($numerofactura, $idsocio, $fechafactura, $detalle, $subtotal, $totalisv, $total, $fechavencimiento, $estado){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql="INSERT INTO ma_factura_cliente(numero_factura,id_socio,fecha_factura,detalle,sub_total,total_isv,total,fecha_vencimiento,estado)
+            $sql="INSERT INTO g2_19.ma_factura_cliente(numero_factura,id_socio,fecha_factura,detalle,sub_total,total_isv,total,fecha_vencimiento,estado)
             VALUES (?,?,?,?,?,?,?,?,?);";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $numerofactura);
@@ -43,7 +43,7 @@
         public function update_factura($id, $numerofactura, $idsocio, $fechafactura, $detalle, $subtotal, $totalisv, $total, $fechavencimiento, $estado){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql="UPDATE ma_factura_cliente SET numero_factura=?, id_socio=?, fecha_factura=?, detalle=?, sub_total=?, total_isv=?, total=?, fecha_vencimiento=?, estado=? WHERE ID = ?";
+            $sql="UPDATE g2_19.ma_factura_cliente SET numero_factura=?, id_socio=?, fecha_factura=?, detalle=?, sub_total=?, total_isv=?, total=?, fecha_vencimiento=?, estado=? WHERE ID = ?";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $numerofactura);
             $sql->bindValue(2, $idsocio);
@@ -62,7 +62,7 @@
         public function delete_factura($id){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql="DELETE FROM ma_factura_cliente WHERE ID = ?";
+            $sql="DELETE FROM g2_19.ma_factura_cliente WHERE ID = ?";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $id);
             $sql->execute();
@@ -70,9 +70,5 @@
         }
 
     }
-
-    
-
-
 
 ?>

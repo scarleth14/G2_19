@@ -24,7 +24,7 @@
                 echo json_encode($datos);
             break;  
 
-            case "GetMaterial";
+            case "GetMaterial":
                 $datos=$materiales->get_material($body["ID_Materiales"]);
                 echo json_encode($datos);
             break;
